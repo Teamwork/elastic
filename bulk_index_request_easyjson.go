@@ -4,7 +4,7 @@ package elastic
 
 import (
 	json "encoding/json"
-	easyjson "github.com/mailru/easyjson"
+
 	jlexer "github.com/mailru/easyjson/jlexer"
 	jwriter "github.com/mailru/easyjson/jwriter"
 )
@@ -14,7 +14,7 @@ var (
 	_ *json.RawMessage
 	_ *jlexer.Lexer
 	_ *jwriter.Writer
-	_ easyjson.Marshaler
+	_ EasyJSONMarshaler
 )
 
 func easyjson9de0fcbfDecodeGithubComOlivereElastic(in *jlexer.Lexer, out *bulkIndexRequestCommandOp) {

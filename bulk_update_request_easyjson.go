@@ -4,7 +4,7 @@ package elastic
 
 import (
 	json "encoding/json"
-	easyjson "github.com/mailru/easyjson"
+
 	jlexer "github.com/mailru/easyjson/jlexer"
 	jwriter "github.com/mailru/easyjson/jwriter"
 )
@@ -14,7 +14,7 @@ var (
 	_ *json.RawMessage
 	_ *jlexer.Lexer
 	_ *jwriter.Writer
-	_ easyjson.Marshaler
+	_ EasyJSONMarshaler
 )
 
 func easyjson1ed00e60DecodeGithubComOlivereElastic(in *jlexer.Lexer, out *bulkUpdateRequestCommandOp) {
@@ -210,7 +210,7 @@ func easyjson1ed00e60DecodeGithubComOlivereElastic1(in *jlexer.Lexer, out *bulkU
 				*out.DetectNoop = bool(in.Bool())
 			}
 		case "doc":
-			if m, ok := out.Doc.(easyjson.Unmarshaler); ok {
+			if m, ok := out.Doc.(EasyJSONUnmarshaler); ok {
 				m.UnmarshalEasyJSON(in)
 			} else if m, ok := out.Doc.(json.Unmarshaler); ok {
 				_ = m.UnmarshalJSON(in.Raw())
@@ -228,7 +228,7 @@ func easyjson1ed00e60DecodeGithubComOlivereElastic1(in *jlexer.Lexer, out *bulkU
 				*out.DocAsUpsert = bool(in.Bool())
 			}
 		case "script":
-			if m, ok := out.Script.(easyjson.Unmarshaler); ok {
+			if m, ok := out.Script.(EasyJSONUnmarshaler); ok {
 				m.UnmarshalEasyJSON(in)
 			} else if m, ok := out.Script.(json.Unmarshaler); ok {
 				_ = m.UnmarshalJSON(in.Raw())
@@ -246,7 +246,7 @@ func easyjson1ed00e60DecodeGithubComOlivereElastic1(in *jlexer.Lexer, out *bulkU
 				*out.ScriptedUpsert = bool(in.Bool())
 			}
 		case "upsert":
-			if m, ok := out.Upsert.(easyjson.Unmarshaler); ok {
+			if m, ok := out.Upsert.(EasyJSONUnmarshaler); ok {
 				m.UnmarshalEasyJSON(in)
 			} else if m, ok := out.Upsert.(json.Unmarshaler); ok {
 				_ = m.UnmarshalJSON(in.Raw())
@@ -295,7 +295,7 @@ func easyjson1ed00e60EncodeGithubComOlivereElastic1(out *jwriter.Writer, in bulk
 		} else {
 			out.RawString(prefix)
 		}
-		if m, ok := in.Doc.(easyjson.Marshaler); ok {
+		if m, ok := in.Doc.(EasyJSONMarshaler); ok {
 			m.MarshalEasyJSON(out)
 		} else if m, ok := in.Doc.(json.Marshaler); ok {
 			out.Raw(m.MarshalJSON())
@@ -321,7 +321,7 @@ func easyjson1ed00e60EncodeGithubComOlivereElastic1(out *jwriter.Writer, in bulk
 		} else {
 			out.RawString(prefix)
 		}
-		if m, ok := in.Script.(easyjson.Marshaler); ok {
+		if m, ok := in.Script.(EasyJSONMarshaler); ok {
 			m.MarshalEasyJSON(out)
 		} else if m, ok := in.Script.(json.Marshaler); ok {
 			out.Raw(m.MarshalJSON())
@@ -347,7 +347,7 @@ func easyjson1ed00e60EncodeGithubComOlivereElastic1(out *jwriter.Writer, in bulk
 		} else {
 			out.RawString(prefix)
 		}
-		if m, ok := in.Upsert.(easyjson.Marshaler); ok {
+		if m, ok := in.Upsert.(EasyJSONMarshaler); ok {
 			m.MarshalEasyJSON(out)
 		} else if m, ok := in.Upsert.(json.Marshaler); ok {
 			out.Raw(m.MarshalJSON())
